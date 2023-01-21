@@ -16,23 +16,18 @@ import edu.wpi.first.math.util.Units;
  */
 public final class Constants {
 
+//DRIVE + CHARACTERIZATIONS
+
  public static int leaderLeftCAN = 1;
  public static int followerLeftCAN = 2; 
 
  public static int leaderRightCAN = 3;
  public static int followerRightCAN = 4;
 
- public static boolean RESET_SPARKMAX = true;
+ public static final double kTestSpeed = .20;
 
- public static final double kLeftDriveScaling = .8;
- public static final double kRightDriveScaling = -.8;
- public static double MAX_VELOCITY_MPS =  Units.inchesToMeters(80.0);
- public static double loopPeriodSecs = 0.02;
- public static double WHEEL_RADIUS_METERS =  Units.inchesToMeters(3.0);
+  //SOLINOIDS
+  public static final int kIntakeForward = 0;
+  public static final int kIntakeReverse = 1;
 
- public static double maxSpeed = .65;
-
-  public static class OperatorConstants {
-    public static final int kDriverControllerPort = 0;
-  }
 }
