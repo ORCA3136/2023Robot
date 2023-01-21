@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../.."
+		},
+		{
+			"name": "2023Robot-1",
+			"path": "../../../../../../../../New folder (4)/2023Robot-1"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic",
+		"java.server.launchMode": "Standard"
+	}
+}
