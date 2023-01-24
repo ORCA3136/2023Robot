@@ -29,7 +29,7 @@ public class RobotContainer {
  // private final Joystick joystick = new Joystick(2);
   private final XboxController controller = new XboxController(1);
   private final Drivetrain m_drivetrain = new Drivetrain(); 
-  private final Intake m_innerIntake = new Intake();
+  //private final Intake m_innerIntake = new Intake();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
 
@@ -37,6 +37,8 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
+    configureButtonBindings();
+
   }
 
   public void configureButtonBindings(){
@@ -52,14 +54,14 @@ public class RobotContainer {
     
 
     //solenoid
-    new JoystickButton(controller, XboxController.Button.kX.value)
+    /*new JoystickButton(controller, XboxController.Button.kX.value)
     .onTrue(new InstantCommand(()-> m_innerIntake.deployIntake(), m_innerIntake))
       .onFalse(new InstantCommand(m_innerIntake::off,m_innerIntake));
 
     new JoystickButton(controller, XboxController.Button.kY.value)
     .onTrue(new InstantCommand(()-> m_innerIntake.retractIntake(), m_innerIntake))
       .onFalse(new InstantCommand(m_innerIntake::off,m_innerIntake));
-
+*/
     
 
     
@@ -76,9 +78,7 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    new Trigger(m_exampleSubsystem::exampleCondition)
-        .onTrue(new ExampleCommand(m_exampleSubsystem));
-
+ 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
 

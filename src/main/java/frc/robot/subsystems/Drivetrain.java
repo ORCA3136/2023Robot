@@ -51,17 +51,23 @@ private double afterEncoderReduction = 6.0; // Internal encoders
 private RelativeEncoder leftInternalEncoder;
 private RelativeEncoder rightInternalEncoder;
 
-public void DRIVE(){
+public Drivetrain(){
     
     leftLeader = new CANSparkMax(Constants.leaderLeftCAN, MotorType.kBrushless);
     leftFollower = new CANSparkMax(Constants.followerLeftCAN, MotorType.kBrushless);
 
     leftFollower.follow(leftLeader);
 
+    rightLeader = new CANSparkMax(Constants.leaderRightCAN, MotorType.kBrushless);
+    rightFollower = new CANSparkMax(Constants.followerRightCAN, MotorType.kBrushless);
+
+    rightFollower.follow(rightLeader);
+
 }
 
 public void driveForward(double ktestspeed){
     leftLeader.set(Constants.kTestSpeed);
+    rightLeader.set(Constants.kTestSpeed);
 }
 
 public void driveReverse(double ktestspeed){

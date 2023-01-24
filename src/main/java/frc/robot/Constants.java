@@ -22,7 +22,7 @@ public final class Constants {
  public static int followerLeftCAN = 3; 
 
  public static int leaderRightCAN = 4;
- public static int followerRightCAN = 5;
+ public static int followerRightCAN = 6;
 
  public static final double kTestSpeed = .20;
 

@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
-  Compressor compressor = new Compressor(0, PneumaticsModuleType.REVPH);
+ // Compressor compressor = new Compressor(0, PneumaticsModuleType.REVPH);
 
   private RobotContainer m_robotContainer;
 
@@ -31,7 +31,7 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
-    compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
+   // compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
 
   }
 
@@ -49,7 +49,7 @@ public class Robot extends TimedRobot {
     // and running subsystem periodic() methods.  This must be called from the robot's periodic
     // block in order for anything in the Command-based framework to work.
     CommandScheduler.getInstance().run();
-    compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
+   // compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
 
     
   }
@@ -65,7 +65,7 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
-    compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
+  //  compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
     // schedule the autonomous command (example)
     if (m_autonomousCommand != null) {
       m_autonomousCommand.schedule();
@@ -85,14 +85,14 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
-    compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
+   // compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
 
   }
 
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
+   // compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
 
   }
 
@@ -100,28 +100,28 @@ public class Robot extends TimedRobot {
   public void testInit() {
     // Cancels all running commands at the start of test mode.
     CommandScheduler.getInstance().cancelAll();
-    compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
+   // compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
 
   }
 
   /** This function is called periodically during test mode. */
   @Override
   public void testPeriodic() {
-    compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
+    //compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
 
   }
 
   /** This function is called once when the robot is first started up. */
   @Override
   public void simulationInit() {
-    compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
+   // compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
 
   }
 
   /** This function is called periodically whilst in simulation. */
   @Override
   public void simulationPeriodic() {
-    compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
+  //  compressor.enableAnalog(kDefaultPeriod, kDefaultPeriod);
 
   }
 }
