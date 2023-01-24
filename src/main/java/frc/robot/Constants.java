@@ -18,11 +18,11 @@ public final class Constants {
 
 //DRIVE + CHARACTERIZATIONS
 
- public static int leaderLeftCAN = 1;
- public static int followerLeftCAN = 2; 
+ public static int leaderLeftCAN = 2;
+ public static int followerLeftCAN = 3; 
 
- public static int leaderRightCAN = 3;
- public static int followerRightCAN = 4;
+ public static int leaderRightCAN = 4;
+ public static int followerRightCAN = 5;
 
  public static final double kTestSpeed = .20;
 

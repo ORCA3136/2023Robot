@@ -6,9 +6,15 @@ package frc.robot;
 
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.ExampleSubsystem;
+import frc.robot.subsystems.Intake;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
@@ -20,10 +26,12 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+ // private final Joystick joystick = new Joystick(2);
+  private final XboxController controller = new XboxController(1);
+  private final Drivetrain m_drivetrain = new Drivetrain(); 
+  private final Intake m_innerIntake = new Intake();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -32,7 +40,29 @@ public class RobotContainer {
   }
 
   public void configureButtonBindings(){
-    new jo
+
+    //test forward and back
+    new JoystickButton(controller, XboxController.Button.kA.value)
+    .onTrue(new InstantCommand(()-> m_drivetrain.driveForward(Constants.kTestSpeed), m_drivetrain))
+      .onFalse(new InstantCommand(m_drivetrain::driveStop,m_drivetrain));
+
+    new JoystickButton(controller, XboxController.Button.kB.value)
+    .onTrue(new InstantCommand(()-> m_drivetrain.driveReverse(Constants.kTestSpeed), m_drivetrain))
+      .onFalse(new InstantCommand(m_drivetrain::driveStop,m_drivetrain));
+    
+
+    //solenoid
+    new JoystickButton(controller, XboxController.Button.kX.value)
+    .onTrue(new InstantCommand(()-> m_innerIntake.deployIntake(), m_innerIntake))
+      .onFalse(new InstantCommand(m_innerIntake::off,m_innerIntake));
+
+    new JoystickButton(controller, XboxController.Button.kY.value)
+    .onTrue(new InstantCommand(()-> m_innerIntake.retractIntake(), m_innerIntake))
+      .onFalse(new InstantCommand(m_innerIntake::off,m_innerIntake));
+
+    
+
+    
   }
 
   /**
@@ -51,7 +81,7 @@ public class RobotContainer {
 
     // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
     // cancelling on release.
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+
   }
 
   /**

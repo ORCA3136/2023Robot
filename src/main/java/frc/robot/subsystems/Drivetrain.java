@@ -56,27 +56,20 @@ public void DRIVE(){
     leftLeader = new CANSparkMax(Constants.leaderLeftCAN, MotorType.kBrushless);
     leftFollower = new CANSparkMax(Constants.followerLeftCAN, MotorType.kBrushless);
 
-    rightLeader = new CANSparkMax(Constants.leaderRightCAN, MotorType.kBrushless);
-    rightFollower = new CANSparkMax(Constants.followerRightCAN, MotorType.kBrushless);
-
     leftFollower.follow(leftLeader);
-    rightFollower.follow(rightLeader);
 
 }
 
-public void driveForward(){
+public void driveForward(double ktestspeed){
     leftLeader.set(Constants.kTestSpeed);
-    rightLeader.set(-1 * Constants.kTestSpeed);
 }
 
-public void driveReverse(){
+public void driveReverse(double ktestspeed){
     leftLeader.set(-1 * Constants.kTestSpeed);
-    rightLeader.set(Constants.kTestSpeed);
 }
 
 public void driveStop(){
     leftLeader.set(0);
-    rightLeader.set(0);
 }
 
 }
